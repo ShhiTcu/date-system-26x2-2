@@ -66,3 +66,12 @@ function dateToCode(date) {
 
     return letter + dayIndex;
 }
+
+const dateInput = document.getElementById("dateInput");
+
+dateInput.addEventListener("change", function () {
+    const date = new Date(this.value + "T00:00:00");
+    const result = dateToCode(date);
+
+    console.log(result);
+});
