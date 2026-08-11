@@ -66,15 +66,3 @@ function dateToCode(date) {
 
     return letter + dayIndex;
 }
-
-console.log(dateToCode(new Date(2026, 0, 1)));
-console.log(dateToCode(new Date(2026, 0, 7)));
-console.log(dateToCode(new Date(2026, 0, 8)));
-console.log(dateToCode(new Date(2026, 1, 28)));
-console.log(dateToCode(new Date(2026, 2, 1)));
-console.log(dateToCode(new Date(2026, 11, 30)));
-console.log(dateToCode(new Date(2026, 11, 31)));
-
-console.log(dateToCode(new Date(2028, 1, 28)));
-console.log(dateToCode(new Date(2028, 1, 29)));
-console.log(dateToCode(new Date(2028, 2, 1)));
