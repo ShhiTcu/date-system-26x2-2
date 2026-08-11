@@ -1,0 +1,15 @@
+body {
+    font-family: sans-serif;
+    margin: 40px;
+}
+
+#dateInput {
+    font-size: 18px;
+    width: 180px;
+    padding: 6px;
+}
+
+#result {
+    font-size: 28px;
+    font-weight: bold;
+}
