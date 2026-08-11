@@ -24,3 +24,20 @@ body {
     display: inline-block;
     margin-left: 8px;
 }
+
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+#dateInput {
+    font-size: 18px;
+    width: 180px;
+    max-width: 100%;
+    padding: 6px;
+}
+
+#result {
+    font-size: 28px;
+    font-weight: bold;
+}
