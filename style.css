@@ -13,3 +13,14 @@ body {
     font-size: 28px;
     font-weight: bold;
 }
+
+#dateInput {
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+
+#result {
+    display: inline-block;
+    margin-left: 8px;
+}
