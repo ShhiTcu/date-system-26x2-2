@@ -117,6 +117,8 @@ function codeToDate(code) {
     return null;
 }
 
+const dateInput = document.getElementById("dateInput");
+
 dateInput.addEventListener("change", function () {
     const date = new Date(this.value + "T00:00:00");
     const result = dateToCode(date);
@@ -127,7 +129,10 @@ dateInput.addEventListener("change", function () {
 const codeInput = document.getElementById("codeInput");
 
 codeInput.addEventListener("input", function () {
+    console.log("入力された値:", this.value);
+
     const result = codeToDate(this.value);
+    console.log("変換結果:", result);
 
     document.getElementById("dateResult").textContent =
         result || "入力が正しくありません";
