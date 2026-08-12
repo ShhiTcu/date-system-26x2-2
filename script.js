@@ -67,7 +67,53 @@ function dateToCode(date) {
     return letter + dayIndex;
 }
 
+function codeToDate(code) {
+    // 2月29日
+    if (code === "i3'") {
+        return "2/29";
+    }
 
+    // 12月31日
+    if (code === "Z7'") {
+        return "12/31";
+    }
+
+    const letter = code.charAt(0);
+    const dayIndex = Number(code.slice(1));
+
+    let letterIndex;
+
+    if (letter >= "a" && letter <= "z") {
+        letterIndex =
+            letter.charCodeAt(0) - "a".charCodeAt(0);
+    } else if (letter >= "A" && letter <= "Z") {
+        letterIndex =
+            letter.charCodeAt(0) - "A".charCodeAt(0) + 26;
+    } else {
+        return null;
+    }
+
+    // 364日体系での通算日
+    const dayOfYear =
+        letterIndex * 7 + dayIndex;
+
+    const daysInMonth = [
+        31, 28, 31, 30, 31, 30,
+        31, 31, 30, 31, 30, 30
+    ];
+
+    let remaining = dayOfYear;
+
+    for (let month = 1; month <= 12; month++) {
+        if (remaining <= daysInMonth[month - 1]) {
+            return month + "/" + remaining;
+        }
+
+        remaining -= daysInMonth[month - 1];
+    }
+
+    return null;
+}
 
 dateInput.addEventListener("change", function () {
     const date = new Date(this.value + "T00:00:00");
