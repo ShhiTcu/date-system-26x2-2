@@ -126,7 +126,7 @@ dateInput.addEventListener("change", function () {
 
 const codeInput = document.getElementById("codeInput");
 
-codeInput.addEventListener("change", function () {
+codeInput.addEventListener("input", function () {
     const result = codeToDate(this.value);
 
     document.getElementById("dateResult").textContent =
