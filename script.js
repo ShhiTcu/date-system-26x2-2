@@ -122,4 +122,13 @@ dateInput.addEventListener("change", function () {
     const result = dateToCode(date);
 
     document.getElementById("result").textContent = result;
-    });
+});
+
+const codeInput = document.getElementById("codeInput");
+
+codeInput.addEventListener("change", function () {
+    const result = codeToDate(this.value);
+
+    document.getElementById("dateResult").textContent =
+        result || "入力が正しくありません";
+});
