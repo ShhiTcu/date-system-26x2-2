@@ -83,6 +83,11 @@ function codeToDate(code) {
     const letter = code.charAt(0);
     const dayIndex = Number(code.slice(1));
 
+    // 1～7以外は無効
+    if (!Number.isInteger(dayIndex) || dayIndex < 1 || dayIndex > 7) {
+    return null;
+    }
+
     let letterIndex;
 
     if (letter >= "a" && letter <= "z") {
@@ -136,5 +141,5 @@ codeInput.addEventListener("input", function () {
 
     document.getElementById("dateResult").textContent =
     this.value ? (result || "入力が正しくありません") : "";
-     
+
 });
