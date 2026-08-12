@@ -1,36 +1,12 @@
 body {
     font-family: sans-serif;
-    margin: 40px;
-}
-
-#dateInput {
-    font-size: 18px;
-    width: 180px;
-    padding: 6px;
-}
-
-#result {
-    font-size: 28px;
-    font-weight: bold;
+    margin: 20px;
 }
 
 #dateInput {
     display: block;
     margin-top: 8px;
     margin-bottom: 20px;
-}
-
-#result {
-    display: inline-block;
-    margin-left: 8px;
-}
-
-body {
-    font-family: sans-serif;
-    margin: 20px;
-}
-
-#dateInput {
     font-size: 18px;
     width: 180px;
     max-width: 100%;
@@ -38,6 +14,35 @@ body {
 }
 
 #result {
+    display: inline-block;
+    margin-left: 8px;
     font-size: 28px;
     font-weight: bold;
+}
+
+/* 記号入力欄 */
+#codeInput {
+    font-size: 18px;
+    width: 180px;
+    max-width: 100%;
+    padding: 6px;
+}
+
+/* 逆変換結果 */
+#dateResult {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* スマホ */
+@media (max-width: 600px) {
+    #codeInput {
+        width: 80%;
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    #dateResult {
+        font-size: 28px;
+    }
 }
