@@ -135,5 +135,6 @@ codeInput.addEventListener("input", function () {
     console.log("変換結果:", result);
 
     document.getElementById("dateResult").textContent =
-        result || "入力が正しくありません";
+    this.value ? (result || "入力が正しくありません") : "";
+     
 });
