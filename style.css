@@ -22,15 +22,15 @@ body {
 
 /* 記号入力欄 */
 #codeInput {
-    font-size: 18px;
-    width: 180px;
+    font-size: 22px;
+    width: 240px;
     max-width: 100%;
-    padding: 6px;
+    padding: 8px;
 }
 
 /* 逆変換結果 */
 #dateResult {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
 }
 
