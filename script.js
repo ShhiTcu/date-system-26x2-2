@@ -67,6 +67,8 @@ function dateToCode(date) {
     return letter + dayIndex;
 }
 
+
+
 function codeToDate(code) {
     // 2月29日
     if (code === "i3'") {
