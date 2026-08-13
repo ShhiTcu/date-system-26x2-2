@@ -11,8 +11,10 @@ let lowerIndex = 0;
 function createDial(elementId) {
     const dial = document.getElementById(elementId);
 
-    const size = dial.offsetWidth;
-    const center = size / 2;
+    const rect = dial.getBoundingClientRect();
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
 
     const radius =
         elementId === "upperDial"
@@ -34,13 +36,13 @@ function createDial(elementId) {
         const angle = index * 30 - 90;
 
         const x =
-            center +
+            centerX +
             radius *
             Math.cos(angle * Math.PI / 180) -
             buttonSize / 2;
 
         const y =
-            center +
+            centerY +
             radius *
             Math.sin(angle * Math.PI / 180) -
             buttonSize / 2;
