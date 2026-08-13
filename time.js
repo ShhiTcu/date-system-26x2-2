@@ -4,22 +4,8 @@ const timeSymbols = [
     "g", "q", "f", "c"
 ];
 
-console.log("時間記号:", timeSymbols);
-
-console.log(
-    "upperDial:",
-    document.getElementById("upperDial")
-);
-
-console.log(
-    "lowerDial:",
-    document.getElementById("lowerDial")
-);
-
 function createDial(elementId) {
     const dial = document.getElementById(elementId);
-
-    console.log("ダイヤル:", elementId, dial);
 
     timeSymbols.forEach((symbol, index) => {
         const button = document.createElement("button");
@@ -27,12 +13,22 @@ function createDial(elementId) {
         button.textContent = symbol;
         button.dataset.index = index;
 
+        // 12個を円周上に配置
+        const angle = index * 30 - 90;
+        const radius = 90;
+
+        const x =
+            120 + radius * Math.cos(angle * Math.PI / 180) - 20;
+
+        const y =
+            120 + radius * Math.sin(angle * Math.PI / 180) - 20;
+
+        button.style.left = x + "px";
+        button.style.top = y + "px";
+
         dial.appendChild(button);
     });
 }
 
-
 createDial("upperDial");
 createDial("lowerDial");
-
-console.log("ここまで実行されました");
