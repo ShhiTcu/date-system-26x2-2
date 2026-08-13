@@ -18,7 +18,7 @@ function createDial(elementId) {
 
     const radius =
         elementId === "upperDial"
-            ? 115
+            ? 110
             : 70;
 
     const buttonSize =
