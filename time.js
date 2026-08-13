@@ -13,17 +13,6 @@ function createDial(elementId) {
 
     const size = dial.offsetWidth;
     const center = size / 2;
-    const dialRadius = {
-        upper: 115,
-        lower: 70
-    };
-}
-
-function createDial(elementId) {
-    const dial = document.getElementById(elementId);
-
-    const size = dial.offsetWidth;
-    const center = size / 2;
 
     const radius =
         elementId === "upperDial"
