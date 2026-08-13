@@ -4,6 +4,16 @@ const timeSymbols = [
     "g", "q", "f", "c"
 ];
 
+const dialLayout = {
+    center: 135,
+
+    outerRadius: 135,
+    innerRadius: 90,
+
+    upperSymbolRadius: 110,
+    lowerSymbolRadius: 70
+};
+
 let upperIndex = 0;
 let lowerIndex = 0;
 
@@ -11,15 +21,13 @@ let lowerIndex = 0;
 function createDial(elementId) {
     const dial = document.getElementById(elementId);
 
-    const rect = dial.getBoundingClientRect();
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+    const centerX = dialLayout.center;
+    const centerY = dialLayout.center;
 
     const radius =
         elementId === "upperDial"
-            ? 110
-            : 70;
+            ? dialLayout.upperSymbolRadius
+            : dialLayout.lowerSymbolRadius;
 
     const buttonSize =
         elementId === "upperDial"
