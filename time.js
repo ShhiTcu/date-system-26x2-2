@@ -5,6 +5,8 @@ const timeSymbols = [
 ];
 
 let upperIndex = 0;
+let lowerIndex = 0;
+
 
 function createDial(elementId) {
     const dial = document.getElementById(elementId);
@@ -36,52 +38,80 @@ function createDial(elementId) {
     });
 }
 
+
 createDial("upperDial");
+createDial("lowerDial");
 
 
-// ==========================
-// 上位ダイヤルの回転処理
-// ==========================
+function setupRotation(dialId, type) {
+    const dial = document.getElementById(dialId);
 
-const upperDial = document.getElementById("upperDial");
+    let dragging = false;
+    let startAngle = 0;
+    let currentRotation = 0;
 
-let dragging = false;
-let startAngle = 0;
-let currentRotation = 0;
+    dial.addEventListener("pointerdown", function (event) {
+        dragging = true;
 
-upperDial.addEventListener("pointerdown", function (event) {
-    dragging = true;
+        dial.setPointerCapture(event.pointerId);
 
-    upperDial.setPointerCapture(event.pointerId);
+        startAngle = getPointerAngle(event, dial);
+    });
 
-    startAngle = getPointerAngle(event);
-});
+    dial.addEventListener("pointermove", function (event) {
+        if (!dragging) {
+            return;
+        }
 
-upperDial.addEventListener("pointermove", function (event) {
-    if (!dragging) {
-        return;
-    }
+        const angle = getPointerAngle(event, dial);
+        let difference = angle - startAngle;
 
-    const angle = getPointerAngle(event);
-    const difference = angle - startAngle;
+        if (difference > 180) {
+            difference -= 360;
+        }
 
-    currentRotation += difference;
-    startAngle = angle;
+        if (difference < -180) {
+            difference += 360;
+        }
 
-    updateUpperDial();
-});
+        currentRotation += difference;
+        startAngle = angle;
 
-upperDial.addEventListener("pointerup", function () {
-    dragging = false;
-});
+        const step = Math.round(currentRotation / 30);
 
-upperDial.addEventListener("pointercancel", function () {
-    dragging = false;
-});
+        currentRotation = step * 30;
+
+        dial.style.transform =
+            "rotate(" + currentRotation + "deg)";
+
+        const index =
+            ((step % 12) + 12) % 12;
+
+        if (type === "upper") {
+            upperIndex = index;
+        } else {
+            lowerIndex = index;
+        }
+
+        updateTimeResult();
+    });
+
+    dial.addEventListener("pointerup", function (event) {
+        dragging = false;
+
+        if (dial.hasPointerCapture(event.pointerId)) {
+            dial.releasePointerCapture(event.pointerId);
+        }
+    });
+
+    dial.addEventListener("pointercancel", function () {
+        dragging = false;
+    });
+}
 
 
-function getPointerAngle(event) {
-    const rect = upperDial.getBoundingClientRect();
+function getPointerAngle(event, dial) {
+    const rect = dial.getBoundingClientRect();
 
     const centerX =
         rect.left + rect.width / 2;
@@ -99,23 +129,7 @@ function getPointerAngle(event) {
 }
 
 
-function updateUpperDial() {
-    upperDial.style.transform =
-        "rotate(" + currentRotation + "deg)";
-
-    const step =
-        Math.round(currentRotation / 30);
-
-    upperIndex =
-        ((step % 12) + 12) % 12;
-
-    updateTimeResult();
-}
-
-
 function updateTimeResult() {
-    const lowerIndex = 0;
-
     const result =
         timeSymbols[upperIndex] +
         timeSymbols[lowerIndex];
@@ -123,3 +137,9 @@ function updateTimeResult() {
     document.getElementById("timeResult").textContent =
         result;
 }
+
+
+setupRotation("upperDial", "upper");
+setupRotation("lowerDial", "lower");
+
+updateTimeResult();

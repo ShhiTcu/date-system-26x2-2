@@ -71,3 +71,9 @@ body {
     border-radius: 50%;
     font-size: 18px;
 }
+
+#upperDial 
+#lowerDial {
+    touch-action: none;
+    user-select: none;
+}
