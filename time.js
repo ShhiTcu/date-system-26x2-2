@@ -6,6 +6,15 @@ const timeSymbols = [
 
 console.log("時間記号:", timeSymbols);
 
+console.log(
+    "upperDial:",
+    document.getElementById("upperDial")
+);
+
+console.log(
+    "lowerDial:",
+    document.getElementById("lowerDial")
+);
 
 function createDial(elementId) {
     const dial = document.getElementById(elementId);
