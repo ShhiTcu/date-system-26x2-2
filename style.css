@@ -72,8 +72,20 @@ body {
     font-size: 18px;
 }
 
-#upperDial 
-#lowerDial {
+#upperDial,
+#lowerDial,
+#upperDial button,
+#lowerDial button {
     touch-action: none;
     user-select: none;
+}
+
+#upperDial,
+#lowerDial {
+    cursor: grab;
+}
+
+#upperDial:active,
+#lowerDial:active {
+    cursor: grabbing;
 }
