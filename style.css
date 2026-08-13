@@ -46,3 +46,28 @@ body {
         font-size: 28px;
     }
 }
+
+#timeDial {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+#upperDial,
+#lowerDial {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    border: 2px solid #999;
+    border-radius: 50%;
+}
+
+#upperDial button,
+#lowerDial button {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 18px;
+}
