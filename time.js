@@ -21,8 +21,8 @@ let lowerIndex = 0;
 function createDial(elementId) {
     const dial = document.getElementById(elementId);
 
-    const centerX = dialLayout.center;
-    const centerY = dialLayout.center;
+    const centerX = dial.offsetWidth / 2;
+    const centerY = dial.offsetHeight / 2;
 
     const radius =
         elementId === "upperDial"
