@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>364a1Z7+2式日付</title>
     <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
+    <script src="time.js" defer></script>
 </head>
 
 <body>
@@ -21,7 +24,21 @@
 
     <p>逆変換結果：<span id="dateResult"></span></p>
 
-    <script src="script.js"></script>
+    <h2>時刻</h2>
+
+    <div id="timeDial">
+        <div>
+            <p>上位</p>
+            <div id="upperDial"></div>
+        </div>
+
+        <div>
+            <p>下位</p>
+            <div id="lowerDial"></div>
+        </div>
+    </div>
+
+    <p>時間記号：<span id="timeResult"></span></p>
 
 </body>
 </html>
