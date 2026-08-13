@@ -98,7 +98,7 @@ function setupRotation(dialId, type) {
 
 
         const index =
-            ((step % 12) + 12) % 12;
+            ((-step % 12) + 12) % 12;
 
 
         if (type === "upper") {
