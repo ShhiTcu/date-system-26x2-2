@@ -39,13 +39,15 @@ function createDial(elementId) {
             centerX +
             radius *
             Math.cos(angle * Math.PI / 180) -
-            buttonSize / 2;
+            buttonSize / 2 - 
+            2;
 
         const y =
             centerY +
             radius *
             Math.sin(angle * Math.PI / 180) -
-            buttonSize / 2;
+            buttonSize / 2 - 
+            2;
 
         button.style.left = x + "px";
         button.style.top = y + "px";
