@@ -124,12 +124,12 @@ function codeToDate(code) {
 
 const dateInput = document.getElementById("dateInput");
 
-dateInput.addEventListener("change", function () {
+    dateInput.addEventListener("change", function () {
     const date = new Date(this.value + "T00:00:00");
     const result = dateToCode(date);
 
     document.getElementById("result").textContent = result;
-});
+    });
 
 const codeInput = document.getElementById("codeInput");
 
