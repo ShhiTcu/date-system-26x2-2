@@ -25,3 +25,5 @@ function createDial(elementId) {
 
 createDial("upperDial");
 createDial("lowerDial");
+
+console.log("ここまで実行されました");
