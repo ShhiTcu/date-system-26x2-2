@@ -11,6 +11,19 @@ let lowerIndex = 0;
 function createDial(elementId) {
     const dial = document.getElementById(elementId);
 
+    const size = dial.offsetWidth;
+    const center = size / 2;
+
+    const radius =
+        elementId === "upperDial"
+            ? 105
+            : 72;
+
+    const buttonSize =
+        elementId === "upperDial"
+            ? 40
+            : 36;
+
     timeSymbols.forEach(function (symbol, index) {
         const button = document.createElement("button");
 
@@ -19,20 +32,23 @@ function createDial(elementId) {
 
         // 12個を円周上に配置
         const angle = index * 30 - 90;
-        const radius = 90;
 
         const x =
-            120 +
-            radius * Math.cos(angle * Math.PI / 180) -
-            20;
+            center +
+            radius *
+            Math.cos(angle * Math.PI / 180) -
+            buttonSize / 2;
 
         const y =
-            120 +
-            radius * Math.sin(angle * Math.PI / 180) -
-            20;
+            center +
+            radius *
+            Math.sin(angle * Math.PI / 180) -
+            buttonSize / 2;
 
         button.style.left = x + "px";
         button.style.top = y + "px";
+
+        // 中心から外向き
         button.style.transform =
             "rotate(" + (angle + 90) + "deg)";
 
