@@ -5,3 +5,19 @@ const timeSymbols = [
 ];
 
 console.log("時間記号:", timeSymbols);
+
+function createDial(elementId) {
+    const dial = document.getElementById(elementId);
+
+    timeSymbols.forEach((symbol, index) => {
+        const button = document.createElement("button");
+
+        button.textContent = symbol;
+        button.dataset.index = index;
+
+        dial.appendChild(button);
+    });
+}
+
+createDial("upperDial");
+createDial("lowerDial");
