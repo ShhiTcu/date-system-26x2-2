@@ -52,7 +52,6 @@ function setupRotation(dialId, type) {
     let lastAngle = 0;
     let rotation = 0;
 
-
     dial.addEventListener("pointerdown", function (event) {
         dragging = true;
 
@@ -62,7 +61,6 @@ function setupRotation(dialId, type) {
 
         event.preventDefault();
     });
-
 
     dial.addEventListener("pointermove", function (event) {
         if (!dragging) {
@@ -85,48 +83,85 @@ function setupRotation(dialId, type) {
         }
 
         rotation += difference;
-
         lastAngle = currentAngle;
 
-        // 30°単位に吸着
-        const step =
-            Math.round(rotation / 30);
-
-        const snappedRotation =
-            step * 30;
-
+        // ドラッグ中はそのまま滑らかに回転
         dial.style.transform =
-            "rotate(" + snappedRotation + "deg)";
+            "rotate(" + rotation + "deg)";
 
-
-        const index =
-            ((-step % 12) + 12) % 12;
-
-
-        if (type === "upper") {
-            upperIndex = index;
-        } else {
-            lowerIndex = index;
-        }
-
-        updateTimeResult();
+        // 現在の位置に対応する記号
+        updateDialIndex(rotation, type);
 
         event.preventDefault();
     });
 
-
     dial.addEventListener("pointerup", function (event) {
+        if (!dragging) {
+            return;
+        }
+
         dragging = false;
+
+        // 最も近い30°に吸着
+        const snappedRotation =
+            Math.round(rotation / 30) * 30;
+
+        rotation = snappedRotation;
+
+        dial.style.transition =
+            "transform 0.12s ease-out";
+
+        dial.style.transform =
+            "rotate(" + rotation + "deg)";
+
+        updateDialIndex(rotation, type);
+
+        setTimeout(function () {
+            dial.style.transition = "";
+        }, 120);
 
         if (dial.hasPointerCapture(event.pointerId)) {
             dial.releasePointerCapture(event.pointerId);
         }
     });
 
-
     dial.addEventListener("pointercancel", function () {
         dragging = false;
+
+        const snappedRotation =
+            Math.round(rotation / 30) * 30;
+
+        rotation = snappedRotation;
+
+        dial.style.transition =
+            "transform 0.12s ease-out";
+
+        dial.style.transform =
+            "rotate(" + rotation + "deg)";
+
+        updateDialIndex(rotation, type);
+
+        setTimeout(function () {
+            dial.style.transition = "";
+        }, 120);
     });
+}
+
+
+function updateDialIndex(rotation, type) {
+    const step =
+        Math.round(rotation / 30);
+
+    const index =
+        ((-step % 12) + 12) % 12;
+
+    if (type === "upper") {
+        upperIndex = index;
+    } else {
+        lowerIndex = index;
+    }
+
+    updateTimeResult();
 }
 
 
