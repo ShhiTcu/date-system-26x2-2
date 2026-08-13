@@ -192,6 +192,29 @@ function updateTimeResult() {
 
     document.getElementById("timeResult").textContent =
         result;
+
+    // 1日144単位
+    const totalUnits =
+        upperIndex * 12 + lowerIndex;
+
+    // 1単位 = 10分
+    const totalMinutes =
+        totalUnits * 10;
+
+    const hours =
+        Math.floor(totalMinutes / 60);
+
+    const minutes =
+        totalMinutes % 60;
+
+    const hourText =
+        String(hours).padStart(2, "0");
+
+    const minuteText =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("clockResult").textContent =
+        hourText + ":" + minuteText;
 }
 
 
