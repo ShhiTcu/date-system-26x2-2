@@ -47,25 +47,33 @@ function setupRotation(dialId, type) {
     const dial = document.getElementById(dialId);
 
     let dragging = false;
-    let startAngle = 0;
-    let currentRotation = 0;
+    let lastAngle = 0;
+    let rotation = 0;
+
 
     dial.addEventListener("pointerdown", function (event) {
         dragging = true;
 
         dial.setPointerCapture(event.pointerId);
 
-        startAngle = getPointerAngle(event, dial);
+        lastAngle = getPointerAngle(event, dial);
+
+        event.preventDefault();
     });
+
 
     dial.addEventListener("pointermove", function (event) {
         if (!dragging) {
             return;
         }
 
-        const angle = getPointerAngle(event, dial);
-        let difference = angle - startAngle;
+        const currentAngle =
+            getPointerAngle(event, dial);
 
+        let difference =
+            currentAngle - lastAngle;
+
+        // 180°をまたいだときの補正
         if (difference > 180) {
             difference -= 360;
         }
@@ -74,18 +82,24 @@ function setupRotation(dialId, type) {
             difference += 360;
         }
 
-        currentRotation += difference;
-        startAngle = angle;
+        rotation += difference;
 
-        const step = Math.round(currentRotation / 30);
+        lastAngle = currentAngle;
 
-        currentRotation = step * 30;
+        // 30°単位に吸着
+        const step =
+            Math.round(rotation / 30);
+
+        const snappedRotation =
+            step * 30;
 
         dial.style.transform =
-            "rotate(" + currentRotation + "deg)";
+            "rotate(" + snappedRotation + "deg)";
+
 
         const index =
             ((step % 12) + 12) % 12;
+
 
         if (type === "upper") {
             upperIndex = index;
@@ -94,7 +108,10 @@ function setupRotation(dialId, type) {
         }
 
         updateTimeResult();
+
+        event.preventDefault();
     });
+
 
     dial.addEventListener("pointerup", function (event) {
         dragging = false;
@@ -104,6 +121,7 @@ function setupRotation(dialId, type) {
         }
     });
 
+
     dial.addEventListener("pointercancel", function () {
         dragging = false;
     });
@@ -111,7 +129,8 @@ function setupRotation(dialId, type) {
 
 
 function getPointerAngle(event, dial) {
-    const rect = dial.getBoundingClientRect();
+    const rect =
+        dial.getBoundingClientRect();
 
     const centerX =
         rect.left + rect.width / 2;
