@@ -6,8 +6,11 @@ const timeSymbols = [
 
 console.log("時間記号:", timeSymbols);
 
+
 function createDial(elementId) {
     const dial = document.getElementById(elementId);
+
+    console.log("ダイヤル:", elementId, dial);
 
     timeSymbols.forEach((symbol, index) => {
         const button = document.createElement("button");
@@ -18,6 +21,7 @@ function createDial(elementId) {
         dial.appendChild(button);
     });
 }
+
 
 createDial("upperDial");
 createDial("lowerDial");
