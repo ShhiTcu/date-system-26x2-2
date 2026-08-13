@@ -33,6 +33,8 @@ function createDial(elementId) {
 
         button.style.left = x + "px";
         button.style.top = y + "px";
+        button.style.transform =
+            "rotate(" + (angle + 90) + "deg)";
 
         dial.appendChild(button);
     });
