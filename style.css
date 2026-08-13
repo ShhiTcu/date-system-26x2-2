@@ -73,10 +73,10 @@ body {
 }
 
 #lowerDial {
-    left: 40px;
-    top: 40px;
-    width: 200px;
-    height: 200px;
+    left: 50px;
+    top: 50px;
+    width: 180px;
+    height: 180px;
     border: 2px solid #666;
 }
 
