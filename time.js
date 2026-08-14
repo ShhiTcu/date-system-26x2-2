@@ -250,3 +250,19 @@ setupRotation("upperDial", "upper");
 setupRotation("lowerDial", "lower");
 
 updateTimeResult();
+
+document.getElementById("timeInput").addEventListener("change", function () {
+    const [hours, minutes] = this.value.split(":").map(Number);
+
+    const totalUnits =
+        hours * 6 +
+        Math.floor(minutes / 10);
+
+    const upperStep =
+        Math.floor(totalUnits / 12);
+
+    const lowerStep =
+        totalUnits % 12;
+
+    // ここでダイヤルを動かす
+});
