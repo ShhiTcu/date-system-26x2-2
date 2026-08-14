@@ -22,7 +22,7 @@ body {
 /* 記号入力欄 */
 #codeInput {
     font-size: 22px;
-    width: 240px;
+    width: 80px;
     max-width: 100%;
     padding: 8px;
 }
