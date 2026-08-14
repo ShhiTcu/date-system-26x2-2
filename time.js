@@ -103,11 +103,16 @@ let lowerIndex = 0;
 function createDial(elementId) {
     const dial = document.getElementById(elementId);
 
+    const dialSize =
+    elementId === "upperDial"
+        ? dialLayout.upperDialSize
+        : dialLayout.lowerDialSize;
+
     const centerX =
-    dialLayout.outerCenterX;
+        dialSize / 2;
 
     const centerY =
-        dialLayout.outerCenterY;
+        dialSize / 2;
 
     const radius =
         elementId === "upperDial"
