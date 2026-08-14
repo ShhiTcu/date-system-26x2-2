@@ -72,10 +72,10 @@ body {
 }
 
 #upperDial {
-    left: 0;
-    top: 0;
-    width: var(--outer-size);
-    height: var(--outer-size);
+    left: var(--upper-left);
+    top: var(--upper-top);
+    width: var(--upper-size);
+    height: var(--upper-size);
     border: 2px solid #999;
 }
 
