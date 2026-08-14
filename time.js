@@ -7,7 +7,7 @@ const timeSymbols = [
 const dialLayout = {
     outerSize: 270
 };
-
+//中心を同一に変化させる
 dialLayout.outerCenterX =
     dialLayout.outerSize / 2;
 
@@ -31,6 +31,14 @@ dialLayout.lowerDialCenterX =
 
 dialLayout.lowerDialCenterY =
     dialLayout.outerCenterY;
+
+document
+    .getElementById("timeDial")
+    .style
+    .setProperty(
+        "--outer-size",
+        dialLayout.outerSize + "px"
+    );
 
 let upperIndex = 0;
 let lowerIndex = 0;
