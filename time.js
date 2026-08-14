@@ -233,6 +233,8 @@ function setDialFromTime(hours, minutes) {
         "lower"
     );
 
+    updateTimeResult();
+
     setTimeout(function () {
         upperDial.style.transition = "";
         lowerDial.style.transition = "";
