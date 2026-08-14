@@ -53,8 +53,8 @@ body {
 
 #timeDial {
     position: relative;
-    width: 280px;
-    height: 280px;
+    width: var(--outer-size);
+    height: var(--outer-size);
     margin-top: 20px;
     --outer-size: 270px;
 }
