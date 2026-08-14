@@ -318,8 +318,6 @@ function updateDialIndex(rotation, type) {
     } else {
         lowerIndex = index;
     }
-
-    updateTimeResult();
 }
 
 
