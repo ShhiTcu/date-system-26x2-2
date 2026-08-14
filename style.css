@@ -108,12 +108,3 @@ body {
 #lowerDial:active {
     cursor: grabbing;
 }
-
-
-#timeInput {
-    position: relative;
-    z-index: 100;
-    pointer-events: auto;
-    user-select: auto;
-    -webkit-user-select: auto;
-}
