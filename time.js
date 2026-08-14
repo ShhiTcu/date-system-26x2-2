@@ -284,25 +284,25 @@ function setupTimeInput() {
     const minuteInput =
         document.getElementById("minuteInput");
 
-    hourInput.addEventListener("change", function () {
+    function updateFromTimeInput() {
         const hours =
             Number(hourInput.value);
 
         const minutes =
             Number(minuteInput.value);
 
-        setHourFromTime(hours, minutes);
-    });
+        setDialFromTime(hours, minutes);
+    }
 
-    minuteInput.addEventListener("change", function () {
-        const hours =
-            Number(hourInput.value);
+    hourInput.addEventListener(
+        "change",
+        updateFromTimeInput
+    );
 
-        const minutes =
-            Number(minuteInput.value);
-
-        setMinuteFromTime(hours, minutes);
-    });
+    minuteInput.addEventListener(
+        "change",
+        updateFromTimeInput
+    );
 }
 
 
