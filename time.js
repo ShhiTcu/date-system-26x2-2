@@ -78,7 +78,7 @@ function setupRotation(dialId, type) {
 
     let dragging = false;
     let lastAngle = 0;
-    let rotation = 0;
+    let rotation = dial.rotation || 0;
 
     dial.rotation = rotation;
 
