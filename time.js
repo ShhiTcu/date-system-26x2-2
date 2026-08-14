@@ -205,14 +205,38 @@ function setDialFromTime(hours, minutes) {
     const lowerDial =
         document.getElementById("lowerDial");
 
+    // 現在の回転角を更新
+    upperDial.rotation = upperRotation;
+    lowerDial.rotation = lowerRotation;
+
+    // ダイヤルを実際に回す
+    upperDial.style.transition =
+        "transform 0.12s ease-out";
+
+    lowerDial.style.transition =
+        "transform 0.12s ease-out";
+
     upperDial.style.transform =
         "rotate(" + upperRotation + "deg)";
 
     lowerDial.style.transform =
         "rotate(" + lowerRotation + "deg)";
 
-    updateDialIndex(upperRotation, "upper");
-    updateDialIndex(lowerRotation, "lower");
+    // 時間記号の状態も更新
+    updateDialIndex(
+        upperRotation,
+        "upper"
+    )
+
+    updateDialIndex(
+        lowerRotation,
+        "lower"
+    );
+
+    setTimeout(function () {
+        upperDial.style.transition = "";
+        lowerDial.style.transition = "";
+    }, 120);
 }
 
 
