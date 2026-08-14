@@ -5,14 +5,32 @@ const timeSymbols = [
 ];
 
 const dialLayout = {
-    center: 135,
-
-    outerRadius: 135,
-    innerRadius: 90,
-
-    upperSymbolRadius: 110,
-    lowerSymbolRadius: 70
+    outerSize: 270
 };
+
+dialLayout.outerCenterX =
+    dialLayout.outerSize / 2;
+
+dialLayout.outerCenterY =
+    dialLayout.outerSize / 2;
+
+dialLayout.innerCenterX =
+    dialLayout.outerCenterX;
+
+dialLayout.innerCenterY =
+    dialLayout.outerCenterY;
+
+dialLayout.upperDialCenterX =
+    dialLayout.outerCenterX;
+
+dialLayout.upperDialCenterY =
+    dialLayout.outerCenterY;
+
+dialLayout.lowerDialCenterX =
+    dialLayout.outerCenterX;
+
+dialLayout.lowerDialCenterY =
+    dialLayout.outerCenterY;
 
 let upperIndex = 0;
 let lowerIndex = 0;
