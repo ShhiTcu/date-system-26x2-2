@@ -176,6 +176,53 @@ function setupRotation(dialId, type) {
 }
 
 
+function setDialFromTime(hours, minutes) {
+    const totalUnits =
+        hours * 6 +
+        Math.floor(minutes / 10);
+
+    const upperStep =
+        Math.floor(totalUnits / 12);
+
+    const lowerStep =
+        totalUnits % 12;
+
+    const upperRotation =
+        upperStep * -30;
+
+    const lowerRotation =
+        lowerStep * -30;
+
+    const upperDial =
+        document.getElementById("upperDial");
+
+    const lowerDial =
+        document.getElementById("lowerDial");
+
+    upperDial.style.transform =
+        "rotate(" + upperRotation + "deg)";
+
+    lowerDial.style.transform =
+        "rotate(" + lowerRotation + "deg)";
+
+    updateDialIndex(upperRotation, "upper");
+    updateDialIndex(lowerRotation, "lower");
+}
+
+
+function setupTimeInput() {
+    const timeInput =
+        document.getElementById("timeInput");
+
+    timeInput.addEventListener("change", function () {
+        const [hours, minutes] =
+            this.value.split(":").map(Number);
+
+        setDialFromTime(hours, minutes);
+    });
+}
+
+
 function updateDialIndex(rotation, type) {
     const step =
         Math.round(rotation / 30);
