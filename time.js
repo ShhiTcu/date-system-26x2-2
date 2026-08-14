@@ -78,16 +78,20 @@ function setupRotation(dialId, type) {
 
     let dragging = false;
     let lastAngle = 0;
-    let rotation = dial.rotation || 0;
 
-    dial.rotation = rotation;
+    dial.rotation = 0;
 
     dial.addEventListener("pointerdown", function (event) {
         dragging = true;
 
         dial.setPointerCapture(event.pointerId);
 
-        lastAngle = getPointerAngle(event, dial);
+        // 現在ダイヤルに設定されている角度を使う
+        const rotation =
+            dial.rotation;
+
+        lastAngle =
+            getPointerAngle(event, dial);
 
         event.preventDefault();
     });
@@ -112,17 +116,23 @@ function setupRotation(dialId, type) {
             difference += 360;
         }
 
-        rotation += difference;
-        dial.rotation = rotation;
+        dial.rotation += difference;
 
-        lastAngle = currentAngle;
+        lastAngle =
+            currentAngle;
 
         // ドラッグ中はそのまま滑らかに回転
         dial.style.transform =
-            "rotate(" + rotation + "deg)";
+            "rotate(" + dial.rotation + "deg)";
+
+        updateDialIndex(
+            dial.rotation,
+            type
+        );
 
         // 現在の位置に対応する記号
         updateDialIndex(rotation, type);
+
         updateTimeResult();
 
         event.preventDefault();
@@ -137,18 +147,22 @@ function setupRotation(dialId, type) {
 
         // 最も近い30°に吸着
         const snappedRotation =
-            Math.round(rotation / 30) * 30;
+            Math.round(dial.rotation / 30) * 30;
 
-        rotation = snappedRotation;
-        dial.rotation = rotation;
+        dial.rotation =
+            snappedRotation;
 
         dial.style.transition =
             "transform 0.12s ease-out";
 
         dial.style.transform =
-            "rotate(" + rotation + "deg)";
+            "rotate(" + dial.rotation + "deg)";
 
-        updateDialIndex(rotation, type);
+        updateDialIndex(
+            dial.rotation,
+            type
+        );
+
         updateTimeResult();
 
         setTimeout(function () {
@@ -164,18 +178,22 @@ function setupRotation(dialId, type) {
         dragging = false;
 
         const snappedRotation =
-            Math.round(rotation / 30) * 30;
+            Math.round(dial.rotation / 30) * 30;
 
-        rotation = snappedRotation;
-        dial.rotation = rotation;
+        dial.rotation =
+            snappedRotation;
 
         dial.style.transition =
             "transform 0.12s ease-out";
 
         dial.style.transform =
-            "rotate(" + rotation + "deg)";
+            "rotate(" + dial.rotation + "deg)";
 
-        updateDialIndex(rotation, type);
+        updateDialIndex(
+            dial.rotation,
+            type
+        );
+
         updateTimeResult();
 
         setTimeout(function () {
