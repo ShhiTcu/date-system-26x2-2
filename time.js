@@ -80,6 +80,8 @@ function setupRotation(dialId, type) {
     let lastAngle = 0;
     let rotation = 0;
 
+    dial.rotation = rotation;
+
     dial.addEventListener("pointerdown", function (event) {
         dragging = true;
 
@@ -111,6 +113,8 @@ function setupRotation(dialId, type) {
         }
 
         rotation += difference;
+        dial.rotation = rotation;
+
         lastAngle = currentAngle;
 
         // ドラッグ中はそのまま滑らかに回転
@@ -135,6 +139,7 @@ function setupRotation(dialId, type) {
             Math.round(rotation / 30) * 30;
 
         rotation = snappedRotation;
+        dial.rotation = rotation;
 
         dial.style.transition =
             "transform 0.12s ease-out";
@@ -160,6 +165,7 @@ function setupRotation(dialId, type) {
             Math.round(rotation / 30) * 30;
 
         rotation = snappedRotation;
+        dial.rotation = rotation;
 
         dial.style.transition =
             "transform 0.12s ease-out";
