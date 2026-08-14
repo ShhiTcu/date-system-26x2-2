@@ -123,6 +123,7 @@ function setupRotation(dialId, type) {
 
         // 現在の位置に対応する記号
         updateDialIndex(rotation, type);
+        updateTimeResult();
 
         event.preventDefault();
     });
@@ -148,6 +149,7 @@ function setupRotation(dialId, type) {
             "rotate(" + rotation + "deg)";
 
         updateDialIndex(rotation, type);
+        updateTimeResult();
 
         setTimeout(function () {
             dial.style.transition = "";
@@ -174,6 +176,7 @@ function setupRotation(dialId, type) {
             "rotate(" + rotation + "deg)";
 
         updateDialIndex(rotation, type);
+        updateTimeResult();
 
         setTimeout(function () {
             dial.style.transition = "";
