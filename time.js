@@ -241,28 +241,38 @@ function setDialFromTime(hours, minutes) {
 
 
 function createTimeOptions() {
-    const timeInput =
-        document.getElementById("timeInput");
+    const hourInput =
+        document.getElementById("hourInput");
 
+    const minuteInput =
+        document.getElementById("minuteInput");
+
+    // 時：00～23
     for (let hour = 0; hour < 24; hour++) {
-        for (let minute = 0; minute < 60; minute += 10) {
-            const option =
-                document.createElement("option");
+        const option =
+            document.createElement("option");
 
-            const hourText =
-                String(hour).padStart(2, "0");
+        const hourText =
+            String(hour).padStart(2, "0");
 
-            const minuteText =
-                String(minute).padStart(2, "0");
+        option.value = hourText;
+        option.textContent = hourText;
 
-            option.value =
-                hourText + ":" + minuteText;
+        hourInput.appendChild(option);
+    }
 
-            option.textContent =
-                hourText + ":" + minuteText;
+    // 分：00～50（10分刻み）
+    for (let minute = 0; minute < 60; minute += 10) {
+        const option =
+            document.createElement("option");
 
-            timeInput.appendChild(option);
-        }
+        const minuteText =
+            String(minute).padStart(2, "0");
+
+        option.value = minuteText;
+        option.textContent = minuteText;
+
+        minuteInput.appendChild(option);
     }
 }
 
