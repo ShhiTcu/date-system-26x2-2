@@ -5,7 +5,7 @@ const timeSymbols = [
 ];
 
 const dialLayout = {
-    outerSize: 270,
+    outerSize: 300,
     innerSize: 180,
 
     upperDialSize: 270,
