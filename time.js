@@ -373,6 +373,21 @@ function updateTimeResult() {
 
     document.getElementById("clockResult").textContent =
         hourText + ":" + minuteText;
+
+    // 時刻入力欄にも反映
+    const hourInput =
+        document.getElementById("hourInput");
+
+    const minuteInput =
+        document.getElementById("minuteInput");
+
+    if (hourInput) {
+        hourInput.value = hourText;
+    }
+
+    if (minuteInput) {
+        minuteInput.value = minuteText;
+    }
 }
 
 
