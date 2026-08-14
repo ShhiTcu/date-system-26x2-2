@@ -5,7 +5,8 @@ const timeSymbols = [
 ];
 
 const dialLayout = {
-    outerSize: 270
+    outerSize: 270,
+    innerSize: 180
 };
 //中心を同一に変化させる
 dialLayout.outerCenterX =
@@ -31,6 +32,30 @@ dialLayout.lowerDialCenterX =
 
 dialLayout.lowerDialCenterY =
     dialLayout.outerCenterY;
+
+const lowerLeft =
+    dialLayout.outerCenterX -
+    dialLayout.innerSize / 2;
+
+const lowerTop =
+    dialLayout.outerCenterY -
+    dialLayout.innerSize / 2;
+
+document
+    .getElementById("timeDial")
+    .style
+    .setProperty(
+        "--lower-left",
+        lowerLeft + "px"
+    );
+
+document
+    .getElementById("timeDial")
+    .style
+    .setProperty(
+        "--lower-top",
+        lowerTop + "px"
+    );
 
 document
     .getElementById("timeDial")
