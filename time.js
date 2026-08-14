@@ -61,6 +61,14 @@ document
     .getElementById("timeDial")
     .style
     .setProperty(
+        "--inner-size",
+        dialLayout.innerSize + "px"
+    );
+
+document
+    .getElementById("timeDial")
+    .style
+    .setProperty(
         "--outer-size",
         dialLayout.outerSize + "px"
     );

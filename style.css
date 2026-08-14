@@ -82,8 +82,8 @@ body {
 #lowerDial {
     left: var(--lower-left);
     top: var(--lower-top);
-    width: 180px;
-    height: 180px;
+    width: var(--inner-size);
+    height: var(--inner-size);
     border: 2px solid #666;
 }
 
