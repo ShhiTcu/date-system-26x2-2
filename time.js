@@ -11,6 +11,9 @@ const dialLayout = {
     upperDialSize: 270,
     lowerDialSize: 180,
 
+    upperSymbolRadius: 110,
+    lowerSymbolRadius: 70,
+
     outerCenterX: 270 / 2,
     outerCenterY: 270 / 2
 };
@@ -108,8 +111,8 @@ function createDial(elementId) {
 
     const radius =
         elementId === "upperDial"
-            ? 110
-            : 70;
+            ? dialLayout.upperSymbolRadius
+            : dialLayout.lowerSymbolRadius;
 
     const buttonSize =
         elementId === "upperDial"
