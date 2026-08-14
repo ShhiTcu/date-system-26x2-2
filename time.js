@@ -47,13 +47,20 @@ let lowerIndex = 0;
 function createDial(elementId) {
     const dial = document.getElementById(elementId);
 
-    const centerX = dial.offsetWidth / 2;
-    const centerY = dial.offsetHeight / 2;
+    const centerX =
+        elementId === "upperDial"
+            ? dialLayout.upperDialCenterX
+            : dialLayout.lowerDialCenterX;
+
+    const centerY =
+        elementId === "upperDial"
+            ? dialLayout.upperDialCenterY
+            : dialLayout.lowerDialCenterY;
 
     const radius =
         elementId === "upperDial"
-            ? dialLayout.upperSymbolRadius
-            : dialLayout.lowerSymbolRadius;
+            ? 110
+            : 70;
 
     const buttonSize =
         elementId === "upperDial"
@@ -73,14 +80,14 @@ function createDial(elementId) {
             centerX +
             radius *
             Math.cos(angle * Math.PI / 180) -
-            buttonSize / 2 - 
+            buttonSize / 2 -
             2;
 
         const y =
             centerY +
             radius *
             Math.sin(angle * Math.PI / 180) -
-            buttonSize / 2 - 
+            buttonSize / 2 -
             2;
 
         button.style.left = x + "px";
