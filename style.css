@@ -47,6 +47,12 @@ body {
     }
 }
 
+#hourInput,
+#minuteInput {
+    font-size: 18px;
+    padding: 6px;
+}
+
 #timeDial {
     position: relative;
     width: 280px;
