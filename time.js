@@ -278,14 +278,30 @@ function createTimeOptions() {
 
 
 function setupTimeInput() {
-    const timeInput =
-        document.getElementById("timeInput");
+    const hourInput =
+        document.getElementById("hourInput");
 
-    timeInput.addEventListener("change", function () {
-        const [hours, minutes] =
-            this.value.split(":").map(Number);
+    const minuteInput =
+        document.getElementById("minuteInput");
 
-        setDialFromTime(hours, minutes);
+    hourInput.addEventListener("change", function () {
+        const hours =
+            Number(hourInput.value);
+
+        const minutes =
+            Number(minuteInput.value);
+
+        setHourFromTime(hours, minutes);
+    });
+
+    minuteInput.addEventListener("change", function () {
+        const hours =
+            Number(hourInput.value);
+
+        const minutes =
+            Number(minuteInput.value);
+
+        setMinuteFromTime(hours, minutes);
     });
 }
 
