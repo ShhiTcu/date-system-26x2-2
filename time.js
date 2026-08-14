@@ -8,7 +8,11 @@ const dialLayout = {
     outerSize: 270,
     innerSize: 180,
 
-    upperDialSize: 270
+    upperDialSize: 270,
+    lowerDialSize: 180,
+
+    outerCenterX: 270 / 2,
+    outerCenterY: 270 / 2
 };
 //中心を同一に変化させる
 dialLayout.outerCenterX =
@@ -115,14 +119,10 @@ function createDial(elementId) {
     const dial = document.getElementById(elementId);
 
     const centerX =
-        elementId === "upperDial"
-            ? dialLayout.upperDialCenterX
-            : dialLayout.lowerDialCenterX;
+    dialLayout.outerCenterX;
 
     const centerY =
-        elementId === "upperDial"
-            ? dialLayout.upperDialCenterY
-            : dialLayout.lowerDialCenterY;
+        dialLayout.outerCenterY;
 
     const radius =
         elementId === "upperDial"
