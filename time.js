@@ -240,6 +240,33 @@ function setDialFromTime(hours, minutes) {
 }
 
 
+function createTimeOptions() {
+    const timeInput =
+        document.getElementById("timeInput");
+
+    for (let hour = 0; hour < 24; hour++) {
+        for (let minute = 0; minute < 60; minute += 10) {
+            const option =
+                document.createElement("option");
+
+            const hourText =
+                String(hour).padStart(2, "0");
+
+            const minuteText =
+                String(minute).padStart(2, "0");
+
+            option.value =
+                hourText + ":" + minuteText;
+
+            option.textContent =
+                hourText + ":" + minuteText;
+
+            timeInput.appendChild(option);
+        }
+    }
+}
+
+
 function setupTimeInput() {
     const timeInput =
         document.getElementById("timeInput");
@@ -328,6 +355,7 @@ setupRotation("lowerDial", "lower");
 
 updateTimeResult();
 
+createTimeOptions();
 setupTimeInput();
 
 document.getElementById("timeInput").addEventListener("change", function () {
