@@ -87,9 +87,6 @@ function setupRotation(dialId, type) {
         dial.setPointerCapture(event.pointerId);
 
         // 現在ダイヤルに設定されている角度を使う
-        const rotation =
-            dial.rotation;
-
         lastAngle =
             getPointerAngle(event, dial);
 
