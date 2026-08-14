@@ -298,6 +298,8 @@ setupRotation("lowerDial", "lower");
 
 updateTimeResult();
 
+setupTimeInput();
+
 document.getElementById("timeInput").addEventListener("change", function () {
     const [hours, minutes] = this.value.split(":").map(Number);
 
