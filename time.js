@@ -212,9 +212,6 @@ function setupRotation(dialId, type) {
             type
         );
 
-        // 現在の位置に対応する記号
-        updateDialIndex(rotation, type);
-
         updateTimeResult();
 
         event.preventDefault();
