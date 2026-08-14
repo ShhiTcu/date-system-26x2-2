@@ -21,24 +21,6 @@ dialLayout.outerCenterX =
 dialLayout.outerCenterY =
     dialLayout.outerSize / 2;
 
-dialLayout.innerCenterX =
-    dialLayout.outerCenterX;
-
-dialLayout.innerCenterY =
-    dialLayout.outerCenterY;
-
-dialLayout.upperDialCenterX =
-    dialLayout.outerCenterX;
-
-dialLayout.upperDialCenterY =
-    dialLayout.outerCenterY;
-
-dialLayout.lowerDialCenterX =
-    dialLayout.outerCenterX;
-
-dialLayout.lowerDialCenterY =
-    dialLayout.outerCenterY;
-
 const lowerLeft =
     dialLayout.outerCenterX -
     dialLayout.innerSize / 2;
