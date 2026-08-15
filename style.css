@@ -119,4 +119,6 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
+    font-size: 36px;
+    font-weight: 700;
 }
