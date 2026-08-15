@@ -85,14 +85,6 @@ document
         dialLayout.outerSize + "px"
     );
 
-document
-    .getElementById("timeDial")
-    .style
-    .setProperty(
-        "--outer-size",
-        dialLayout.outerSize + "px"
-    );
-
 let upperIndex = 0;
 let lowerIndex = 0;
 
