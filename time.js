@@ -10,9 +10,6 @@ const dialLayout = {
 
     upperSymbolRadius: 110,
     lowerSymbolRadius: 70,
-
-    outerCenterX: 270 / 2,
-    outerCenterY: 270 / 2
 };
 //中心を同一に変化させる
 dialLayout.outerCenterX =
