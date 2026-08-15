@@ -116,7 +116,7 @@ function createDial(elementId) {
 
     const buttonSize =
         elementId === "upperDial"
-            ? 40
+            ? 42
             : 36;
 
     timeSymbols.forEach(function (symbol, index) {
