@@ -122,3 +122,12 @@ body {
     font-size: 36px;
     font-weight: 700;
 }
+
+/* 色指定 */
+#dateInput,
+#codeInput,
+#hourInput,
+#minuteInput {
+    background-color: #aaa;
+    color: #000;
+}
