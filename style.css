@@ -56,7 +56,6 @@ body {
     width: var(--outer-size);
     height: var(--outer-size);
     margin-top: 20px;
-    --outer-size: 270px;
 }
 
 #upperDial,
