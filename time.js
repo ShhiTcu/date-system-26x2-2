@@ -114,7 +114,12 @@ function createDial(elementId) {
             ? dialLayout.upperSymbolRadius
             : dialLayout.lowerSymbolRadius;
 
-    const buttonSize =
+    const buttonSizeWidth =
+        elementId === "upperDial"
+            ? 72
+            : 36;
+
+    const buttonSizeHeight =
         elementId === "upperDial"
             ? 42
             : 36;
@@ -132,14 +137,14 @@ function createDial(elementId) {
             centerX +
             radius *
             Math.cos(angle * Math.PI / 180) -
-            buttonSize / 2 -
+            buttonSizeWidth / 2 -
             2;
 
         const y =
             centerY +
             radius *
             Math.sin(angle * Math.PI / 180) -
-            buttonSize / 2 -
+            buttonSizeHeight / 2 -
             2;
 
         button.style.left = x + "px";
