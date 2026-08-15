@@ -11,6 +11,15 @@ const dialLayout = {
     upperSymbolRadius: 110,
     lowerSymbolRadius: 70,
 };
+
+document
+    .getElementById("timeDial")
+    .style
+    .setProperty(
+        "--outer-size",
+        dialLayout.outerSize + "px"
+    );
+
 //中心を同一に変化させる
 dialLayout.outerCenterX =
     dialLayout.outerSize / 2;
