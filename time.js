@@ -8,9 +8,6 @@ const dialLayout = {
     outerSize: 270,
     innerSize: 180,
 
-    upperDialSize: 270,
-    lowerDialSize: 180,
-
     upperSymbolRadius: 110,
     lowerSymbolRadius: 70,
 
@@ -58,11 +55,11 @@ document
 
 const upperLeft =
     dialLayout.outerCenterX -
-    dialLayout.upperDialSize / 2;
+    dialLayout.outerSize / 2;
 
 const upperTop =
     dialLayout.outerCenterY -
-    dialLayout.upperDialSize / 2;
+    dialLayout.outerSize / 2;
 
 document
     .getElementById("timeDial")
@@ -85,7 +82,7 @@ document
     .style
     .setProperty(
         "--upper-size",
-        dialLayout.upperDialSize + "px"
+        dialLayout.outerSize + "px"
     );
 
 document
@@ -105,8 +102,8 @@ function createDial(elementId) {
 
     const dialSize =
     elementId === "upperDial"
-        ? dialLayout.upperDialSize
-        : dialLayout.lowerDialSize;
+        ? dialLayout.outerSize
+        : dialLayout.innerSize;
 
     const centerX =
         dialSize / 2;
